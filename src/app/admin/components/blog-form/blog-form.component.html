@@ -1,0 +1,56 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<form #f="ngForm" (ngSubmit)="save(f.value)" >
+				<div class="form-group">
+					<label for="title">Blog Title</label>
+					<input #title="ngModel" [(ngModel)]="blog.title" type="text" name="title" id="title" class="form-control" required>
+					<div class="text-danger" *ngIf="title.touched && title.invalid">
+						Title is required.
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="description">Description</label>
+					<textarea #description="ngModel" [(ngModel)]="blog.description" type="text" name="description" id="description" class="form-control" required></textarea>
+					<div class="text-danger" *ngIf="description.touched && description.invalid">
+						Description is required.
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="body">Content</label>
+					<textarea #body="ngModel" [(ngModel)]="blog.body" type="text" name="body" id="body" class="form-control" rows="10" required></textarea>
+					<div class="text-danger" *ngIf="body.touched && body.invalid">
+						Content is required.
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="image">Blog Image</label>
+					<input type="file" name="image" id="image" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="tags">Tags</label>
+					<input #tags="ngModel" [(ngModel)]="blog.tags" type="text" name="tags" id="tags" class="form-control" required>
+					<div class="text-danger" *ngIf="tags.touched && tags.invalid">
+						Tags are required.
+					</div>
+				</div>
+				<button [disabled]="!f.valid" type="submit" class="btn btn-outline-success">Save!</button>
+				<button type="button" (click)="delete()" class="btn btn-sm btn-outline-danger">Delete</button>
+			</form>
+		</div>
+	</div>
+	<hr>
+		<h6 class="text-muted">-Blog preview-</h6>
+	<div class="row" *ngIf="blog.title">
+		<div class="col">
+			<div class="blog-post">
+        <h2 class="blog-post-title">{{ blog.title }}</h2>
+        <blockquote>{{blog.description}}</blockquote>
+				<span class="badge badge-pill badge-secondary float-right">{{ blog.tags }}</span>
+        <p class="blog-post-meta">month dd, yyyy by <a class="text-primary">Author</a></p>
+				<img [src]="blog.imageUrl" class="img-fluid img-thumbnail float-left preImg" alt="blog image" width="400px" height="400px" *ngIf="blog.imageUrl">
+        <p>{{ blog.body }}</p>
+      </div><!-- /.blog-post -->
+		</div>
+	</div>
+</div>

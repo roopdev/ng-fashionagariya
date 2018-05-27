@@ -1,0 +1,15 @@
+<div class="container" *ngIf="blog$.blog">
+	<!-- <div>{{ blog$ | json }}</div> -->
+		<div class="row">
+			<div class="col">
+				<div class="blog-post">
+	        <h2 class="blog-post-title">{{ blog$.blog.title }}</h2>
+	        <blockquote>{{ blog$.blog.description }}</blockquote>
+					<span class="badge badge-pill badge-secondary float-right">{{ blog$.blog.tags }}</span>
+	        <p class="blog-post-meta">{{ blog$.dateCreated | date }} by <a class="text-primary">{{ blog$.user.name }}</a></p> <hr>
+					<img [src]="blog$.blog.imageUrl" alt="blog image" class="img-fluid img-thumbnail float-left preImg" alt="blog image" width="400px" height="400px">
+	        <p>{{ blog$.blog.body }}</p>
+	      </div><!-- /.blog-post -->
+			</div>
+		</div>
+</div>

@@ -1,0 +1,51 @@
+<loading-spinner *ngIf="showSpinner"></loading-spinner>
+<!-- Carousel Slider -->
+   <ngb-carousel class="carousel">
+     <ng-template ngbSlide>
+       <img src="https://firebasestorage.googleapis.com/v0/b/fashionagariya-prod.appspot.com/o/mainPageImgs%2Fpexels-photo-1350x450.jpeg?alt=media&token=d122418d-7b91-4d97-a3ab-fc4741c20d05" alt="Random first slide" class="d-block img-fluid">
+       <div class="carousel-caption">
+         <h3>First slide label</h3>
+       </div>
+     </ng-template>
+     <ng-template ngbSlide>
+       <img src="https://firebasestorage.googleapis.com/v0/b/fashionagariya-prod.appspot.com/o/mainPageImgs%2Fpexels-photo-226465.jpeg?alt=media&token=2fd1c8c3-2f8b-4a8c-9611-d93cc1a804a4" alt="Random second slide" class="d-block img-fluid">
+       <div class="carousel-caption">
+         <h3>Second slide label</h3>
+       </div>
+     </ng-template>
+     <ng-template ngbSlide>
+       <img src="http://placekitten.com/1350/400" alt="Random third slide"  class="d-block img-fluid">
+       <div class="carousel-caption">
+         <h3>Third slide label</h3>
+       </div>
+     </ng-template>
+   </ngb-carousel>
+   <!-- Carousel Slider -->
+
+<div class="wrapper">
+  <h4>Latest Blogs!</h4>
+  <div class="row" >
+			<div class="col-md-2" ontouchstart="this.classList.toggle('hover');" *ngFor="let b of blogs">
+				<div class="container">
+					<div class="front" [style.backgroundImage]="'url(' + b.blog.imageUrl + ')'" >
+						<div class="inner">
+							<p>{{ b.blog.title }}</p>
+              <span>{{ b.user.name }}</span>
+						</div>
+					</div>
+					<div class="back">
+						<div class="inner">
+						  <a [routerLink]="['/blog/', b.$key]">{{ b.blog.description }}</a>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+ </div>
+
+ <div class="feature-products">
+   <h4>Featured products!</h4>
+   <div class="row">
+     
+   </div>
+ </div>

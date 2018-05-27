@@ -1,0 +1,33 @@
+<div class="container">
+	<h3>New User Registration</h3>
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<form [formGroup]="userForm" (ngSubmit)="register()">
+				<div class="form-group">
+					<label>Email address</label>
+					<input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email" required>
+					<div *ngIf="formErrors.email" class="notification text-danger">
+						{{ formErrors.email }}
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" name="password" class="form-control" id="password" aria-describedby="passwordHelp" formControlName="password" required>
+					<div *ngIf="formErrors.password" class="notification text-danger">
+						{{ formErrors.password }}
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="displayName">User Name</label>
+					<input type="text" name="displayName" class="form-control" id="displayName" aria-describedby="nameHelp" formControlName="displayName" required>
+					<div *ngIf="formErrors.displayName" class="notification is-danger">
+						{{ formErrors.displayName }}
+					</div>
+				</div>
+				<div *ngIf="userForm.valid" class="notification text-success">Form is valid.</div>
+				<button [disabled]="!userForm.valid" type="submit" class="btn btn-outline-primary">Submit</button>
+			</form><br>
+			<div class="card-text">Already have an Account? <a routerLink="/login">Login!</a></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,96 @@
+<!-- Page Content -->
+    <div class="container">
+      <loading-spinner *ngIf="showSpinner"></loading-spinner>
+      <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+          
+          <!-- Blog Post -->
+          <div class="mb-4" *ngFor="let b of blogs$ | reverse">
+            <ul class="list-unstyled">
+              <li class="media">
+                <img class="mr-3 img-fluid" src="{{ b.blog.imageUrl }}">
+                <div class="media-body">
+                  <h5 class="mt-0 mb-1">{{ b.blog.title }}</h5>
+                  <p>{{ b.blog.description }}</p>
+                  <a [routerLink]="['/blog/', b.$key]" class="btn btn-sm btn-outline-warning">Read More &rarr;</a>
+                  <hr>
+                  <p class="text-muted">
+                    Posted on {{ b.dateCreated | date }} by
+                    <a href="">{{ b.user.name }}</a>
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+            <li class="page-item">
+              <a class="page-link" >&larr; Older</a>
+            </li>
+            <li class="page-item disabled">
+              <a class="page-link" >Newer &rarr;</a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          <!-- Popular Posts Widget -->
+          <div class=" my-4">
+            <h5 class="card-header">Popular Posts</h5>
+            <div class="card-body">
+                <ul class="list-unstyled" *ngFor="let p of propBlog">
+                  <li class="media">
+                    <a [routerLink]="['/blog/', p.$key]"><div class="mr-3 img-fluid rounded thumbnail" [style.backgroundImage]="'url(' + p.blog.imageUrl + ')'"></div></a>
+                    <div class="media-body">
+                      <h6 class="mt-0 mb-1">{{ p.blog.title }}</h6>  
+                    </div>
+                  </li>
+                </ul>                      
+            </div>
+          </div>
+
+          <!-- Categories Widget -->
+          <div class=" my-4">
+            <h5 class="card-header">Popular Tags</h5>
+            <div class="card-body text-center">
+              <div class="card-text">
+                  <a><span class="badge badge-pill badge-secondary">Kittens</span></a>
+                  <a><span class="badge badge-pill badge-secondary">Kittens</span></a>
+                  <a><span class="badge badge-pill badge-secondary">Kittens</span></a>
+                  <a><span class="badge badge-pill badge-secondary">Kittens</span></a>
+                  <a><span class="badge badge-pill badge-secondary">Kittens</span></a>
+                  <a><span class="badge badge-pill badge-secondary">Kittens</span></a>
+                  <a><span class="badge badge-pill badge-secondary">Kittens</span></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Widget -->
+          <div class="my-4">
+            <h5 class="card-header">Instagram Feed</h5>
+            <div class="card-body">
+              <div class="card-text">
+                
+                  <img src="http://via.placeholder.com/150x150" class="img-fluid rounded insta">
+                  <img src="http://via.placeholder.com/150x150" class="img-fluid rounded insta">
+                  <img src="http://via.placeholder.com/150x150" class="img-fluid rounded insta">
+                  <img src="http://via.placeholder.com/150x150" class="img-fluid rounded insta">
+                  <img src="http://via.placeholder.com/150x150" class="img-fluid rounded insta">
+              
+              </div>
+              Import latest 10 pics from instagram account!
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+       <!-- /.row -->
+
+  </div>

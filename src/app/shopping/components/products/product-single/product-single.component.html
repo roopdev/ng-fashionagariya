@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<div class="row" *ngIf="cart$ | async as cart">
+				<ng-container >
+					<div class="col">
+						<product-card [product]="product" [shopping-cart]="cart"></product-card>			
+					</div>
+				</ng-container>
+			</div>
+		</div>
+		<div class="col">
+			<p>Product description</p>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- <div class="container">
+	<div class="row" *ngIf="product$ | async as product">
+		<div class="col-md-6">
+			<img src="{{ product.imageUrl }}" class="img-thumnail img-fluid" width="400px" height="400px">
+		</div>
+		<div class="col-md-6">
+			<div class="list-group">
+				<div class="list-group-item">
+					<h4>Title: {{ product.title }}</h4>
+				</div>
+				<div class="list-group-item">
+					<h6>Category: {{ product.category }}</h6>
+				</div>
+				<div class="list-group-item">
+					<p>Body: {{ product.body }}</p>
+				</div>
+				<div class="list-group-item">
+					<p>Price: {{ product.price }}</p>
+				</div>
+			</div>
+			<button (click)="addToCart()" class="btn btn-outline-success btn-block">Add to cart</button>
+		</div>
+	</div>
+</div> -->

@@ -1,0 +1,9 @@
+.profile-img{
+    
+    margin-right: 5px;
+    float: left;
+    /*background: url('https://firebasestorage.googleapis.com/v0/b/fashionnagariya.appspot.com/o/profileImg%2Fblank-profile.png?alt=media&token=5245fbff-1347-4de6-a404-856489e12c75') 50% 50% no-repeat; /* 50% 50% centers image in div */ */
+    background-size: auto 100%; /* Interchange this value depending on prefering width vs. height */
+    width: 30px;
+    height: 30px;
+}

@@ -1,0 +1,41 @@
+<div class="container">
+<h1>My Orders</h1>
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  </thead> 
+  <tbody>
+    <tr *ngFor="let order of orders$ | async">
+      <td>{{ order.shipping.firstName }}</td>
+      <td>{{ order.datePlaced | date}}</td>
+      <td>{{ order.shipping.addressLine1 }}</td>
+    </tr>
+  </tbody> 
+</table> -->
+
+<div class="row" *ngFor="let order of orders$ | async">
+	<div class="col-md-8">
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">Order Id: {{ order.$key }}</li>
+			<li class="list-group-item">First name: {{ order.shipping.firstName }}</li>
+			<li class="list-group-item"> Address: {{ order.shipping.addressLine1 }}</li>
+			<li class="list-group-item">Address line2: {{ order.shipping.addressLine2 }}</li>
+			<li class="list-group-item">City: {{ order.shipping.city }}</li>
+			<li class="list-group-item">Ordered Date: {{ order.datePlaced | date}}</li>
+		</ul>
+		<!-- <div>{{ order.items | async }}</div> -->
+		<ul class="list-group" *ngFor="let item of order.items">
+			<li class="list-group-item">{{ item | json }}</li>
+			<li class="list-group-item">Product Title: {{ item.product.title }}</li>
+			<li class="list-group-item">Total product quantity: {{ item.quantity }}</li>
+			<li class="list-group-item">Total Price: {{ item.totalPrice }}</li>
+		</ul>
+
+		<br>
+	</div>
+</div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+	<h4>Login to Fashionagariya: </h4><br>
+	<div class="row">
+		<div class="col-md-6">
+			<h6>-Easily using-</h6>
+			<div class="">
+				<div class="card-body">
+					<button class="btn btn-danger btn-block btn-google" (click)="signInWithGoogle()"><i class="fa fa-google-plus fa-lg"></i> | Login with Google</button>
+					<button class="btn btn-sm btn-primary btn-block btn-facebook" disabled><i class="fa fa-facebook fa-lg"></i> | Login with Facebook</button>
+					<button class="btn btn-sm btn-info btn-block btn-twiter" disabled><i class="fa fa-twitter fa-lg"></i> | Login with Twitter</button> <hr>
+					<button class="btn btn-outline-secondary btn-block" (click)="signInAnonymously()"><i class="fa fa-user-secret fa-lg"></i> Guest User</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<h6>-Or using Email-</h6>
+			<div class="">
+				<div class="card-body">
+					<form [formGroup]="userForm" (ngSubmit)="signInWithEmail()" >
+						<div class="form-group">
+							<label for="email">Email address</label>
+							<input type="email" id="email" class="form-control" formControlName="email" required>
+							<div *ngIf="formErrors.email" class="help text-danger">{{ formErrors.email }}</div>
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input type="password" id="password" class="form-control" formControlName="password" required>
+							<div *ngIf="formErrors.password" class="help text-danger">{{ formErrors.password }}</div>
+						</div>
+						<div *ngIf="userForm.valid" class="help text-success">Form is valid.</div>
+						<button type="submit" class="btn btn-outline-primary btn-block" [disabled]="!userForm.valid">Sign In</button>
+					</form> <br>
+					<div class="card-text">Forgot Password? <a routerLink="/reset-password">Click Here</a> to reset password</div>
+				</div>
+			</div>
+			<p>New to Fashionagariya? <a routerLink="/register"> Create Account.</a></p>
+		</div>
+	</div>
+</div>

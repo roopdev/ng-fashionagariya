@@ -1,0 +1,40 @@
+<div class="container">
+	<p><a routerLink="/admin/blogs/new" class="btn btn-success">Create new blog!</a></p>
+	<p>
+		<input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search...">
+	</p>
+
+	<data-table
+		[items]="items"
+		[itemCount]="itemCount"
+		(reload)="reloadItems($event)">
+
+		<data-table-column
+			[property]="'blog'"
+			[header]="'Title'"
+			[sortable]="true"
+			[resizable]="true">
+			<ng-template #dataTableCell let-item="item">
+				{{ item.blog.title }}
+			</ng-template>
+		</data-table-column>
+
+		<data-table-column
+			[property]="'dateCreated'"
+			[header]="'Date Created'"
+			[sortable]="true"
+			[resizable]="true">
+			<ng-template #dataTableCell let-item="item">
+				{{ item.dateCreated | date }}
+			</ng-template>
+		</data-table-column>
+
+		<data-table-column
+			[property]="'$key'">
+			<ng-template #dataTableCell let-item="item">
+				<a [routerLink]="['/admin/blogs/', item.$key]">Edit</a>
+			</ng-template>
+		</data-table-column>
+
+	</data-table>
+</div>

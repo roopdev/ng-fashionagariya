@@ -1,0 +1,54 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col section-content">
+			<h3 class="content-header">Get in <strong >Touch with us</strong>....</h3>
+			<p>Need to contact us about something? Reach out, we’d be happy to hear from you.</p>
+		</div>
+	</div>
+	<div class="row contact-section">
+		<div class="col-md-4">
+			<div >
+				<ul>
+					<li><a href="https://www.instagram.com/fashionagariya/" target="_blank"><i id="social-in" class="fa fa-instagram fa-2x social"></i></a>| Instagram DM</li>
+					<li><a href="https://www.facebook.com/profile.php?id=100014541041842&ref=br_rs" target="_blank"><i id="social-fb" class="fa fa-facebook-square fa-2x social"></i></a>| Facebook Messenger</li>
+	        <li><a href=""><i id="social-tw" class="fa fa-twitter-square fa-2x social"></i></a>| Twitter Contact</li>
+	        <li><a href=""><i id="social-gp" class="fa fa-google-plus-square fa-2x social"></i></a>| Google+ Hangouts</li>
+	        <li><a href=""><i id="social-yt" class="fa fa-youtube-square fa-2x social"></i></a>| YouTube Messenger</li>
+	        <li><a href=""><i id="social-em" class="fa fa-envelope-square fa-2x social"></i></a>| contact@fashionagariya.com</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<form #f="ngForm" (ngSubmit)="save(f.value)">
+				<div class="form-row">
+					<div class="col-md-5 form-line">
+				  			<div class="form-group">
+						    	<input #n="ngModel" [(ngModel)]="name" name="name" type="text" class="form-control" id="name" placeholder="Your Name" required>
+						    	<div class="text-danger" *ngIf="n.touched && n.invalid">Please provide your name.</div>
+					  		</div>
+					  		<div class="form-group">
+						    	<input #e="ngModel" [(ngModel)]="email" name="email" type="email" class="form-control" id="email" placeholder="Your Email id" required email>
+						    	<div class="text-danger" *ngIf="e.touched && e.invalid">Please provide your email.</div>
+						  	</div>	
+						  	<div class="form-group">
+						    	<input #t="ngModel" [(ngModel)]="telephone" name="telephone" type="number" class="form-control" id="telephone" placeholder=" Enter 10-digit mobile no." required>
+						    	<div class="text-danger" *ngIf="t.touched && t.invalid">Please provide your phone number.</div>
+				  			</div>
+				  </div>
+				  <div class="col-md-7">
+				  			<div class="form-group">
+				  			 	<textarea #d="ngModel" [(ngModel)]="description" name="description" class="form-control" id="description" placeholder="Your Message..." required></textarea>
+				  			 	<div class="text-danger" *ngIf="d.touched && d.invalid">Please provide your name.</div>
+				  			</div>
+				  			<div class="form-group">
+				  				<button [disabled]="!f.valid" class="btn btn-lg btn-outline-dark"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send Message</button>
+				  			</div>	
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+ 

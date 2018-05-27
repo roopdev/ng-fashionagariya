@@ -1,0 +1,10 @@
+.container {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.thumbnail {
+	width: 80px;
+	height: 80px;
+	background-size: cover;
+}
